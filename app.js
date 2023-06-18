@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-const { error } = require("console");
+const catalogRouter = require("./routes/catalog");
 
 const app = express();
 
@@ -28,6 +28,12 @@ mongoose
   })
   .catch((error) => console.log(error));
 
+/* BookModel.create({
+  title: "firstBook ",
+  author: "John Doe",
+  summary: "resume of the book",
+}); */
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/catalog", catalogRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
