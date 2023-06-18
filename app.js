@@ -13,7 +13,7 @@ const app = express();
 
 // filtering by properties that aren't in the schema
 mongoose.set("strictQuery", false);
-// database url to connect to
+// database uri to connect to
 const mongeDBConnectionString =
   "mongodb+srv://essoh:messagesPas@messagescluster.hi7dd2x.mongodb.net/?retryWrites=true&w=majority";
 // view engine setup
@@ -27,12 +27,6 @@ mongoose
     console.log("successful connection to the database");
   })
   .catch((error) => console.log(error));
-
-/* BookModel.create({
-  title: "firstBook ",
-  author: "John Doe",
-  summary: "resume of the book",
-}); */
 
 app.use(logger("dev"));
 app.use(express.json());
