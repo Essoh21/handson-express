@@ -20,6 +20,9 @@ const BookInstanceSchema = new Schema({
 BookInstanceSchema.virtual("due_back_formatted").get(function () {
   return DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED);
 });
+BookInstanceSchema.virtual("due_back_yyyy_mm_dd").get(function () {
+  return DateTime.fromJSDate(this.due_back).toISODate();
+});
 // Virtual for bookinstance's URL
 BookInstanceSchema.virtual("url").get(function () {
   // We don't use an arrow function as we'll need the this object
