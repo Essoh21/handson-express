@@ -27,8 +27,7 @@ const limiter = RateLimit({
 // filtering by properties that aren't in the schema
 mongoose.set("strictQuery", false);
 // database uri to connect to
-const dev_db_uri =
-  "mongodb+srv://essoh:messagesPas@messagescluster.hi7dd2x.mongodb.net/?retryWrites=true&w=majority";
+const dev_db_uri = ""; // hidden after production
 
 const mongeDBConnectionString = process.env.MONGODB_URI || dev_db_uri;
 // view engine setup
